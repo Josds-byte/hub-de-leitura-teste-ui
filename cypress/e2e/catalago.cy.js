@@ -20,7 +20,7 @@ describe('Funcionalidade: Catálogo de Livros', () => {
         
         });    
         
-         it.only('Deve clicar no ultimo botão Adicionar à cesta', () => {
+         it('Deve clicar no ultimo botão Adicionar à cesta', () => {
             cy.get('.btn-primary').last().click();
         
         });
