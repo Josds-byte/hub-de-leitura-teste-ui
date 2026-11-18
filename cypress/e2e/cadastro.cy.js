@@ -37,5 +37,20 @@ describe('Funcionalidade: Cadastro no Hub de Leitura', () => {
         //resultado esperado
         cy.url().should('include', 'dashboard');
     });
-});
 
+    it('Deve realizar o cadastro com sucesso - Usando comando customizado', () => {
+        let email = `teste${Date.now()}@teste.com`
+        let name = faker.person.fullName();
+        cy.preencherCadastro(
+            'Jovani Souza',
+            'jovani@teste.com',
+            '6798979495',
+            'Teste@123',
+            'Teste@123'
+        );
+        //resultado esperado
+
+    });
+
+
+});
