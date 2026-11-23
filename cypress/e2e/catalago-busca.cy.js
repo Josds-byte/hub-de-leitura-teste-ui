@@ -17,4 +17,20 @@ describe('Funcionalidade: Busca no catalago', () => {
         cy.get('.card-title').should('contain', catalago[2].livro);
     });
 
+    it('Deve fazer a busca usando o comando Fixture', () => {
+        cy.fixture('livros').then((cat) => {
+            cy.get('#search-input').type(cat[1].livro);
+            cy.get('.card-title').should('contain', cat[1].livro);
+        });
+    });
+
+    it.only('Deve validar todos os livros da lista de massa de dados', () => {
+        cy.fixture('livros').then((cat) => {
+            cat.forEach((item) => {
+                cy.get('#search-input').clear().type(item.livro);
+                cy.get('.card-title').should('contain', item.livro);
+            });
+        });
+
+        }); 
 });
