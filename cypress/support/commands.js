@@ -40,3 +40,20 @@ Cypress.Commands.add('preencherCadastro', (name, email, telefone, senha, confirm
     cy.get('#terms-agreement').check();
     cy.get('#register-btn').click();
 })
+
+Cypress.Commands.add('cadastrarUsuario', (nome, email, telefone, senha) => {
+  cy.visit('/register.html')
+  cy.get('#name').type(nome)
+  cy.get('#email').type(email)
+  cy.get('#phone').type(telefone)
+  cy.get('#password').type(senha)
+  cy.get('#confirm-password').type(senha)
+  cy.get('#register-btn').click();
+})
+
+Cypress.Commands.add('login', (email, senha) => {
+  cy.visit('/login.html')
+  cy.get('#email').type(email)
+  cy.get('#password').type(senha)
+  cy.get('#login-btn').click()
+})
